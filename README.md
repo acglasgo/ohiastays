@@ -13,7 +13,7 @@ the request hostname and serves files from the matching folder under `sites/`:
 | lakeway.ohiastays.com | sites/lakeway/ |
 | chelan.ohiastays.com | sites/chelan/ |
 | austin.ohiastays.com | sites/austin/ |
-| sagecliffe.ohiastays.com | sites/sagecliffe/ |
+| thegorge.ohiastays.com | sites/thegorge/ |
 
 Each market folder holds the shared guidebook content for that area (restaurants,
 things to do, local tips) plus a subdirectory per property for the pre-arrival

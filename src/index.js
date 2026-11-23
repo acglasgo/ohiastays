@@ -4,7 +4,7 @@ const HOST_TO_FOLDER = {
   "lakeway.ohiastays.com": "lakeway",
   "chelan.ohiastays.com": "chelan",
   "austin.ohiastays.com": "austin",
-  "sagecliffe.ohiastays.com": "sagecliffe",
+  "thegorge.ohiastays.com": "thegorge",
 };
 
 export default {
