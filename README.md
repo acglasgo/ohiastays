@@ -2,26 +2,27 @@
 
 Source for ohiastays.com and its market-level guest guidebook subdomains.
 
-## Structure
+## How it works
 
-Each top-level folder is deployed as its own Cloudflare Pages project:
+One Cloudflare Worker (`ohiastays`) serves all 5 subdomains. The Worker looks at
+the request hostname and serves files from the matching folder under `sites/`:
 
-| Folder | Pages project | Domain |
-|---|---|---|
-| `root/` | ohiastays-root | ohiastays.com |
-| `lakeway/` | ohiastays-lakeway | lakeway.ohiastays.com |
-| `chelan/` | ohiastays-chelan | chelan.ohiastays.com |
-| `austin/` | ohiastays-austin | austin.ohiastays.com |
-| `sagecliffe/` | ohiastays-sagecliffe | sagecliffe.ohiastays.com |
+| Hostname | Folder served |
+|---|---|
+| ohiastays.com / www | sites/root/ |
+| lakeway.ohiastays.com | sites/lakeway/ |
+| chelan.ohiastays.com | sites/chelan/ |
+| austin.ohiastays.com | sites/austin/ |
+| sagecliffe.ohiastays.com | sites/sagecliffe/ |
 
 Each market folder holds the shared guidebook content for that area (restaurants,
 things to do, local tips) plus a subdirectory per property for the pre-arrival
 Things to Do page and private guest guidebook.
 
-Example per-property layout under a market folder:
+Example per-property layout:
 
 ```
-lakeway/
+sites/lakeway/
   index.html                  # Market-level guidebook (shared)
   top5-restaurants/           # Top 5 pages, one per category
   top5-coffee/
@@ -30,7 +31,15 @@ lakeway/
     guidebook/index.html      # Private guest guidebook
 ```
 
+## Repo layout
+
+```
+src/index.js       # Worker — routes hostname → folder
+wrangler.toml      # Cloudflare config (assets = ./sites)
+sites/             # All served content lives here
+```
+
 ## Deploying
 
-Pushing to `main` triggers Cloudflare Pages to redeploy whichever projects have
-changed files under their root directory.
+Pushing to `main` triggers Cloudflare to redeploy the Worker. The routing map
+lives in `src/index.js`; add a new entry there when adding a new subdomain.
