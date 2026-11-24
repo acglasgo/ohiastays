@@ -98,3 +98,25 @@ Sections with no photo, because none of the 30 shows them: Hot Tub & Pool, Fire 
 Unused photos (16): A7409480, 519, 540, 547, 562, 564, 597, 599, 603, 612, 617, 618, 621, 622, 624, 634.
 
 Checks after the photo pass: compliance scan pass; rules cross-check pass; forbidden-term greps all 0; required ids present, 30 accordions, no box-shadow, no em dashes; all 14 image references exist locally; 13 images, none with empty alt text. Structure checked locally, not through the server validator.
+
+### G (exterior photos). 2026-11-24
+
+36 exterior photos (C/web/E*.jpg) were each viewed and described. Ten were placed, plus one as the hero. Files are copied to `sites/chelan/cascaderetreat/img/` at publish time.
+
+| Where on the page | Photo(s) | What it shows |
+|---|---|---|
+| Hero (welcome), replaces the earlier interior hero | E40 | Lit front of the house at dusk, lawn and birdhouse post |
+| Hot Tub & Pool (Seasonal) | E24, E46 | The backyard pool with its waterfall wall, loungers and umbrellas, in summer and lit at night. No photo shows the hot tub, so the page does not claim one |
+| Fire Feature | E26 | A concrete trough lined with dark stones beside the pool, unlit. The alt text says only that. The host should confirm this is the fire feature |
+| BBQ Grill & Patio | E49, E01 | Outdoor dining table, chairs and red umbrella under string lights; two sun loungers. The grill itself is not clearly visible in any photo |
+| Outdoor Lights | E45 | Backyard at dusk with string lights, the lit shed and the dining table |
+| Backyard Gym | E29 (after the interior A7409635) | The backyard shed with sliding glass doors, loungers and string lights |
+| Front Porch & Views | E34, E05 | Porch with white Adirondack chairs and swing; close view of the porch swing |
+| Parking | E31 | Gravel driveway beside the front lawn. The host should confirm this is the parking driveway |
+
+Rules applied: both sections that show the pool (Hot Tub & Pool, Fire Feature) carry "Children must be supervised by an adult at all times". Pool photos are summer and night shots; the hot-tub season (Oct 1 to Apr 30) is not shown.
+Added: the supervision line to the Fire Feature section (its photo shows the pool).
+Not used (25): E01b (duplicate of E01), E02, E06, E14, E15, E16, E17, E18, E19, E22, E23, E25, E27, E30, E32, E33, E42, E43, E44, E47, E48, E53, E54, E55, E57.
+Still no photo: grill itself, waffle bar, espresso station, baby gate and pack and play.
+
+Checks after this pass: compliance scan pass; rules cross-check pass; forbidden-term greps all 0; required ids present, 30 accordions, no box-shadow, no em dashes; 24 image references all exist in C/web, 23 images all with alt text. Structure checked locally.
