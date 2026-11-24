@@ -144,3 +144,7 @@ Left unchanged on purpose, host's call: early check-in $200 / $25 per hour and l
 
 Additional rules added to the Cascade listing (Rules tab, House rules field, 2026-11-24, confirmed after a reload): check-in and checkout times, 10 guests, no parties or events, no smoking or vaping, no pets (ADA service animals only), quiet hours 10 PM to 7 AM, hot tub and pool safety (no lifeguard, children supervised, no glass, no soaps or oils), hot tub no jumping or diving and not above 104 degrees F, fire feature and fireplace safety, backyard lights off by 11 PM, and the three allowed checkout tasks (trash and recycling to the bins left of the driveway, lights and TVs off, lock doors and windows).
 Not added: the 20-minute soak limit and doctor-consult advice (kept as tips in the guidebook), and the checkout tasks list in Hospitable still holds only "Lock up".
+
+### G (listing rules added). 2026-11-24
+
+The host added the Additional rules to the Cascade listing. The guidebook now states as plain rules: quiet hours 10 PM to 7 AM, hot tub and pool (no lifeguard, adult supervision, no glass, no soaps or oils), hot tub (no jumping or diving, not above 104F), fire feature and fireplaces (use safely, turn the fire feature off), backyard lights off by 11 PM, no pets (ADA service animals only), no smoking or vaping, and the three checkout items. Still tips: the 20-minute soak limit, doctor-consult advice, cover on, shower first, thermostat limits and propane care. Rules cross-check: pass (10 rules covered); compliance scan: pass.
