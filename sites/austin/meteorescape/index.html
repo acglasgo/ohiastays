@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>The Meteor Escape · Guest Guidebook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /*
+     * GHL COMPATIBILITY: all visual properties use !important, hardcoded hex, no CSS variables.
+     * Everything lives inside <div class="page-wrapper">.
+     */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html, body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      background: #1b2d3a !important;
+      background-color: #1b2d3a !important;
+      color: #e4ecf0 !important;
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 72px;
+    }
+    /* bstrw:ghl-full-bleed v1: do not strip. GHL discards html/body and boxes the markup in a ~1150px Row;
+       the 100vw + negative-margin breakout is what removes the white gutters. Never use a transform here. */
+    .page-wrapper {
+      background: #1b2d3a !important;
+      background-color: #1b2d3a !important;
+      color: #e4ecf0;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+    }
+    .page-wrapper a { text-decoration: none !important; }
+    .page-wrapper h1, .page-wrapper h2, .page-wrapper h3, .page-wrapper h4 { color: #e4ecf0 !important; }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', Georgia, serif !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.02em !important;
+      line-height: 1.2 !important;
+    }
+    h1 { font-size: clamp(2.2rem, 6vw, 4rem) !important; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.5rem) !important; color: #b3a4e8 !important; }
+    h3 { font-size: clamp(1.2rem, 3vw, 1.6rem) !important; }
+    p { font-size: 0.95rem !important; color: #b5c7d2 !important; line-height: 1.7 !important; margin-bottom: 12px !important; }
+
+    .container { max-width: 680px !important; margin: 0 auto !important; padding: 0 20px !important; }
+    .section { padding: 60px 0 !important; }
+    .section-divider { width: 60px !important; height: 1px !important; background: #d4a76a !important; margin: 14px 0 24px 0 !important; opacity: 0.7 !important; }
+
+    /* === HERO === */
+    .hero {
+      position: relative !important;
+      min-height: 100vh !important;
+      display: flex !important;
+      align-items: flex-end !important;
+      padding: 0 20px 80px !important;
+      background-size: cover !important;
+      background-position: center !important;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(27,45,58,0.1) 0%, rgba(27,45,58,0.45) 50%, rgba(27,45,58,0.96) 100%);
+    }
+    .hero-content { position: relative !important; z-index: 2 !important; max-width: 680px !important; margin: 0 auto !important; width: 100% !important; }
+    .hero-eyebrow { font-family: 'Inter', sans-serif !important; font-size: 0.75rem !important; font-weight: 500 !important; letter-spacing: 0.2em !important; text-transform: uppercase !important; color: #b3a4e8 !important; margin-bottom: 12px !important; }
+    .hero h1 { color: #ffffff !important; margin-bottom: 16px !important; font-weight: 400 !important; }
+    /* Sits over the hero photo: the text-shadow keeps it legible on any image (the one allowed shadow). */
+    .hero-location { font-size: 0.9rem !important; color: rgba(255,255,255,0.9) !important; text-shadow: 0 2px 14px rgba(0,0,0,0.65), 0 1px 3px rgba(0,0,0,0.5); margin-bottom: 32px !important; }
+    .hero-location i { color: #b3a4e8 !important; margin-right: 6px !important; }
+    .hero-cta {
+      display: inline-flex !important; align-items: center !important; gap: 10px !important;
+      padding: 14px 32px !important; background: transparent !important;
+      border: 1px solid #b3a4e8 !important; color: #b3a4e8 !important;
+      font-family: 'Inter', sans-serif !important; font-size: 0.8rem !important; font-weight: 500 !important;
+      letter-spacing: 0.15em !important; text-transform: uppercase !important;
+      transition: all 0.3s ease !important;
+    }
+    .hero-cta:hover { background: rgba(106,189,210,0.12) !important; }
+
+    /* === HERO WELCOME SCRIPT === */
+    .hero-welcome {
+      position: absolute !important; inset: 0 !important; z-index: 1 !important;
+      display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important;
+      padding-bottom: max(20vh, 190px) !important; pointer-events: none !important;
+    }
+    .hero-welcome-text {
+      font-family: 'Alex Brush', cursive !important; font-weight: 400 !important;
+      font-size: clamp(6rem, min(26vw, 26vh), 20rem) !important; line-height: 1 !important;
+      color: #e4ecf0 !important; text-align: center !important;
+      padding: 0 0.1em !important;
+      /* Two-layer text-shadow is the only way to bolden a connected script font. Never a per-glyph text stroke: it seams at the letter joins. */
+      text-shadow: 0 4px 10px rgba(0,0,0,0.6), 0 18px 48px rgba(0,0,0,0.55);
+      /* CRITICAL: clip-path has NO important flag on purpose. A static important declaration always beats a keyframe animation on the same property, freezing the reveal. */
+      clip-path: inset(0 100% 0 -2%);
+      animation: heroWelcomeReveal 2s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s both !important;
+    }
+    @media (max-width: 480px) {
+      .hero-welcome-text { font-size: clamp(4rem, min(20vw, 20vh), 7.5rem) !important; }
+    }
+    .hero-welcome-flourish { width: clamp(220px, 42vw, 440px) !important; height: auto !important; margin-top: clamp(-3.5rem, -7vw, -2rem) !important; display: block !important; overflow: visible !important; }
+    .hero-welcome-flourish path {
+      fill: none !important; stroke: #b3a4e8 !important; stroke-width: 4 !important; stroke-linecap: round !important;
+      stroke-dasharray: 450 !important;
+      /* Same rule as clip-path: the dashoffset must carry no important flag or the draw animation can never override it. */
+      stroke-dashoffset: 450;
+      animation: heroWelcomeFlourish 1.3s cubic-bezier(0.165, 0.84, 0.44, 1) 1.4s both !important;
+    }
+    @keyframes heroWelcomeReveal {
+      0% { clip-path: inset(0 100% 0 -2%); }
+      72% { clip-path: inset(0 9% 0 -2%); }
+      100% { clip-path: inset(0 -3% 0 -2%); }
+    }
+    @keyframes heroWelcomeFlourish {
+      from { stroke-dashoffset: 450; }
+      to { stroke-dashoffset: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-welcome-text { animation: none !important; clip-path: inset(0 -3% 0 -2%) !important; }
+      .hero-welcome-flourish path { animation: none !important; stroke-dashoffset: 0 !important; }
+      .accordion-trigger:hover .chevron { transform: none !important; }
+    }
+
+    /* === WELCOME === */
+    .facts-line { display: flex !important; flex-wrap: wrap !important; gap: 8px 22px !important; margin: 22px 0 !important; padding: 14px 0 !important; border-top: 1px solid rgba(255,255,255,0.08) !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; font-size: 0.82rem !important; color: #8fa8b8 !important; }
+    .facts-line span { color: #8fa8b8 !important; }
+    .facts-line b { font-family: 'Cormorant Garamond', serif !important; font-size: 1.25rem !important; font-weight: 600 !important; color: #b3a4e8 !important; margin-right: 4px !important; }
+    .signoff { font-family: 'Cormorant Garamond', serif !important; font-size: 1.25rem !important; font-style: italic !important; color: #e4ecf0 !important; margin-top: 8px !important; }
+
+    /* === ACCORDION === */
+    .accordion-group { display: flex !important; flex-direction: column !important; gap: 2px !important; }
+    .accordion-item { background: rgba(255,255,255,0.03) !important; border: 1px solid rgba(255,255,255,0.06) !important; overflow: hidden !important; transition: background 0.3s ease !important; }
+    .accordion-item:hover { background: rgba(255,255,255,0.05) !important; }
+    .accordion-trigger {
+      width: 100% !important; display: flex !important; align-items: center !important; justify-content: space-between !important;
+      padding: 18px 20px !important; background: none !important; border: none !important; cursor: pointer !important;
+      color: #e4ecf0 !important; font-family: 'Inter', sans-serif !important; font-size: 0.85rem !important; font-weight: 500 !important;
+      letter-spacing: 0.05em !important; text-transform: uppercase !important; text-align: left !important;
+    }
+    .accordion-trigger i:first-child { color: #b3a4e8 !important; width: 20px !important; margin-right: 14px !important; font-size: 0.9rem !important; }
+    .accordion-trigger i.gold { color: #d4a76a !important; }
+    .accordion-trigger .chevron {
+      font-size: 0.95rem !important;
+      color: rgba(106,189,210,0.55) !important;
+      transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), color 0.25s ease !important;
+    }
+    .accordion-item:not(.active) .accordion-trigger:hover .chevron { color: #b3a4e8 !important; transform: translateY(3px) !important; }
+    /* CRITICAL: no important flag on max-height 0. The toggle script sets it with setProperty(..., 'important') to open and removeProperty to close. */
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .accordion-content-inner { padding: 0 20px 20px 54px !important; }
+    .accordion-content-inner p { font-size: 0.88rem !important; line-height: 1.7 !important; color: #b9b1a7 !important; }
+    .accordion-content-inner p.tip { background: rgba(201,169,110,0.07) !important; border: 1px solid rgba(201,169,110,0.25) !important; border-radius: 4px !important; padding: 10px 14px !important; margin: 12px 0 !important; }
+    .accordion-content-inner p.tip strong { color: #d4a76a !important; font-weight: 600 !important; }
+    .accordion-item.active .chevron { transform: rotate(180deg) !important; }
+    .accordion-item.active { background: rgba(255,255,255,0.05) !important; }
+    .accordion-item.active .accordion-trigger i:first-child { opacity: 1 !important; transform: scale(1.05) !important; }
+    .accordion-content-inner--experience { padding: 0 20px 20px 20px !important; }
+    .key { font-family: 'Cormorant Garamond', serif !important; font-size: 1.3rem !important; font-weight: 600 !important; color: #b3a4e8 !important; }
+    .key-small { color: #b3a4e8 !important; font-weight: 500 !important; }
+    .task-list, .help-list { list-style: none !important; margin: 4px 0 14px 0 !important; }
+    .task-list li, .help-list li { font-size: 0.88rem !important; line-height: 1.6 !important; color: #b9b1a7 !important; padding: 8px 0 !important; border-bottom: 1px solid rgba(255,255,255,0.05) !important; }
+    .help-list li strong { color: #e4ecf0 !important; font-weight: 500 !important; }
+
+    .amenity-photo { width: 100% !important; height: auto !important; max-height: 240px !important; object-fit: cover !important; border-radius: 4px !important; margin-bottom: 12px !important; display: block !important; }
+
+    /* === EXPERIENCES (link-only) === */
+    .experiences-subtext { color: #8fa8b8 !important; font-size: 0.9rem !important; line-height: 1.7 !important; margin: -8px 0 24px 0 !important; }
+    .experience-cards {
+      display: flex !important; flex-direction: column !important; gap: 16px !important;
+      border: 1px solid rgba(106,189,210,0.18) !important; border-radius: 8px !important;
+      padding: 16px !important; background: rgba(255,255,255,0.015) !important;
+    }
+    .experience-link-card { display: flex !important; flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+    .experience-link-card .description { font-size: 0.88rem !important; color: #b9b1a7 !important; margin: 0 !important; }
+    .experience-link-btn {
+      display: inline-flex !important; align-items: center !important; gap: 10px !important;
+      padding: 12px 24px !important; border: 1px solid #b3a4e8 !important; background: transparent !important; color: #b3a4e8 !important;
+      font-family: 'Inter', sans-serif !important; font-size: 0.75rem !important; font-weight: 500 !important;
+      letter-spacing: 0.12em !important; text-transform: uppercase !important; transition: all 0.3s ease !important;
+    }
+    .experience-link-btn:hover { background: rgba(106,189,210,0.12) !important; }
+
+    /* === MAP === */
+    .map-container { width: 100% !important; height: 400px !important; border: 1px solid rgba(255,255,255,0.06) !important; }
+    .map-container iframe { width: 100% !important; height: 100% !important; border: none !important; }
+
+    /* === CONTACT === */
+    .contact-item { display: flex !important; align-items: center !important; gap: 14px !important; padding: 14px 0 !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; color: #b5c7d2 !important; font-size: 0.9rem !important; }
+    .contact-item i { color: #b3a4e8 !important; width: 18px !important; text-align: center !important; }
+    .contact-rules-note { margin-top: 18px !important; font-size: 0.85rem !important; color: #8fa8b8 !important; }
+
+    /* === WIFI MODAL === */
+    .modal-overlay { display: none; position: fixed !important; inset: 0 !important; background: rgba(0,0,0,0.75) !important; z-index: 2000 !important; align-items: center !important; justify-content: center !important; padding: 20px !important; }
+    .modal-overlay.active { display: flex !important; }
+    .modal { background: #223847 !important; border: 1px solid rgba(106,189,210,0.25) !important; max-width: 380px !important; width: 100% !important; padding: 40px 32px !important; text-align: center !important; position: relative !important; }
+    .modal-close { position: absolute !important; top: 12px !important; right: 16px !important; background: none !important; border: none !important; color: #8fa8b8 !important; font-size: 1.4rem !important; cursor: pointer !important; }
+    .modal h3 { color: #b3a4e8 !important; font-size: 0.75rem !important; font-family: 'Inter', sans-serif !important; font-weight: 500 !important; letter-spacing: 0.2em !important; text-transform: uppercase !important; margin-bottom: 20px !important; }
+    .modal-line { font-family: 'Cormorant Garamond', serif !important; font-size: 1.35rem !important; color: #ffffff !important; }
+
+    /* === BOTTOM NAV === */
+    .bottom-nav { position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; background: #14222c !important; border-top: 1px solid rgba(255,255,255,0.08) !important; z-index: 1000 !important; padding: 8px 0 !important; padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)) !important; }
+    .bottom-nav-inner { max-width: 480px !important; margin: 0 auto !important; display: flex !important; justify-content: space-around !important; }
+    .nav-btn { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 3px !important; background: none !important; border: none !important; color: #6f8999 !important; cursor: pointer !important; padding: 6px 14px !important; transition: color 0.2s !important; -webkit-tap-highlight-color: transparent; }
+    .nav-btn:hover, .nav-btn.active { color: #b3a4e8 !important; }
+    .nav-btn i { font-size: 1.1rem !important; }
+    .nav-btn span { font-size: 0.6rem !important; font-weight: 500 !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; font-family: 'Inter', sans-serif !important; }
+
+    @media (max-width: 480px) {
+      .hero { padding: 0 16px 60px !important; }
+      .section { padding: 40px 0 !important; }
+      .container { padding: 0 16px !important; }
+      .accordion-trigger { padding: 16px !important; }
+      .accordion-content-inner { padding: 0 16px 16px 44px !important; }
+      .accordion-content-inner--experience { padding: 0 16px 16px 16px !important; }
+      .map-container { height: 320px !important; }
+    }
+
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <section class="hero" id="hero" style="background-image: url('https://austin.ohiastays.com/meteorescape/img/m01.jpg');">
+    <div class="hero-welcome">
+      <span class="hero-welcome-text">Welcome</span>
+      <svg class="hero-welcome-flourish" viewBox="0 0 300 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M8,18 C 70,2 110,34 150,18 C 190,2 230,34 292,16" />
+      </svg>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Your South Austin Home Base</div>
+      <h1>The Meteor Escape</h1>
+      <p class="hero-location"><i class="fas fa-map-marker-alt"></i> Austin, TX</p>
+      <a href="#welcome" class="hero-cta">Begin Your Stay <i class="fas fa-arrow-down"></i></a>
+    </div>
+  </section>
+
+  <section class="section" id="welcome">
+    <div class="container">
+      <h2>Welcome to Austin</h2>
+      <div class="section-divider"></div>
+      <p>We are so glad you are here. This bright, colorful South Austin home has 3 bedrooms and 2 bathrooms for up to 7 guests, with a full kitchen, a movie projector and a big backyard with a fire pit.</p>
+      <p>Downtown Austin and Zilker Park are about a 15-minute drive away. Here is how everything in the house works, with our favorite places to explore after that.</p>
+      <p class="facts-line"><span><b>7</b> guests</span><span><b>3</b> bedrooms</span><span><b>2</b> bathrooms</span><span><b>15 min</b> drive to downtown</span></p>
+      <p class="signoff">Charlotte &amp; Miso</p>
+    </div>
+  </section>
+
+  <section class="section" id="essential-info">
+    <div class="container">
+      <h2>Essential Info</h2>
+      <div class="section-divider"></div>
+      <div class="accordion-group" id="essentialGroup">
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-key"></i>Check-in &amp; Arrival</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://austin.ohiastays.com/meteorescape/img/m23.jpg" alt="Front porch with an Adirondack chair and rug" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p><span class="key">4 PM</span> check-in. This home has self check-in with a keypad, so you can arrive on your own schedule after 4 PM.</p><p>Your door code, WiFi details and the address arrive in your check-in message, 3 days before check-in.</p><p>Hoping to arrive earlier? Message us through your booking app and we will do our best.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-square-parking"></i>Parking</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Free parking is on the <strong>left side of the driveway</strong>. Please leave the right side of the driveway clear for the neighboring unit.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-car-side"></i>Getting Around</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>A car is the easiest way to get around Austin. Downtown and Zilker Park are about a 15-minute drive, and I-35 is about 5 minutes away.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-wifi"></i>WiFi &amp; Workspace</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>WiFi details are in your check-in message. There is a dedicated workspace with high-speed WiFi and an ethernet connection, handy if you are working while you are in town.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-temperature-half"></i>Heating &amp; A/C</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p class="tip"><strong>Tips for hot days:</strong> the thermostat can only cool the house about 15 to 25 degrees F below the outside temperature. For the best results, set it to "Cool" mode and keep all curtains and blinds closed. The back of the house runs a little cooler during the hottest evening hours.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-moon"></i>Quiet Hours &amp; Cameras</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Quiet hours are <span class="key">10 PM to 7 AM</span>. The neighbors are close, so please keep noise to a minimum and be kind to them any time of day.</p><p>There are exterior security cameras in the front yard. A noise monitor in the main living area measures decibel levels only and does not record audio. Your privacy indoors and in the backyard is respected.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-door-open"></i>Check-out</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p><span class="key">10 AM</span> check-out. Before you head out:</p><ul class="task-list"><li>Take trash and recycling out the sliding door and through the gate to the left. The brown bin is trash, the blue bin is recycling and the green bin is compost.</li><li>Lights and TVs off.</li><li>Lock any doors and windows you opened during your stay.</li></ul><p>Thank you for taking care of our home. Safe travels!</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-house-chimney"></i>House Basics</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>This home welcomes up to 7 guests. Children and infants are welcome.</p><p>No parties or events. No smoking anywhere on the property.</p><p>Dogs are welcome with prior approval. Please clean up after your dog in the yard.</p><p>The bunk bed is used at your own risk. Children must be
+supervised by an adult at all times, and please follow the weight limits.</p><p>If something breaks during your stay, please tell us through your booking app so we can repair or replace it for the next guest.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-kit-medical"></i>Emergency &amp; Nearby Help</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>In an emergency, call <span class="key">911</span>.</p><p>Nearby non-emergency help:</p><ul class="help-list"><li><strong>St. David&#x27;s South Austin Medical Center</strong><br>901 W Ben White Blvd, Austin, TX 78704<br><span class="key-small">(512) 447-2211</span></li><li><strong>Austin Police South Substation</strong><br>404 Ralph Ablanedo Dr, Austin, TX 78748<br><span class="key-small">(512) 974-8243</span></li><li><strong>Austin Police Department main line (non-emergency)</strong><br>715 E 8th St, Austin, TX 78701<br><span class="key-small">(512) 974-5000</span></li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="property">
+    <div class="container">
+      <h2>Around the House</h2>
+      <div class="section-divider"></div>
+      <div class="accordion-group" id="amenityGroup">
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-film"></i>Projector &amp; Roku</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://austin.ohiastays.com/meteorescape/img/m05.jpg" alt="Pull-down projector screen showing the home menu above the dining table" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p>The living room has an 84-inch pull-down projector screen with a Roku, plus a rolling TV. Movie night is easy:</p><ul class="task-list"><li><strong>Step 1:</strong> lower the projector screen and turn the projector on with the power button on the projector remote.</li><li><strong>Step 2:</strong> use the dial on the projector remote to switch to HDMI 1, which is the Roku player.</li><li><strong>Step 3:</strong> sign in to Roku. When it asks, enter your check-out date so your data is cleared and stays private, then pick your favorite app and sign in.</li></ul><p><strong>If the picture does not fit the screen:</strong> open the settings gear on the projector home screen, choose Projection Image Setting, then Manual Keystone. Use the arrow keys to move each corner of the picture to the corner of the screen and press OK to switch corners. Press the back button when the green circle looks as round as possible.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-utensils"></i>Kitchen &amp; Dining</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://austin.ohiastays.com/meteorescape/img/m06.jpg" alt="Galley kitchen with a gas range and window over the sink" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><img src="https://austin.ohiastays.com/meteorescape/img/m03.jpg" alt="Kitchen bar and dining table beside the sliding patio door" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p>The full kitchen is ready for group meals, with a coffee machine and a large water purifier in the fridge. Fresh towels and linens are provided. There are indoor and outdoor dining spaces, and board games for rainy days.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-couch"></i>Living Room</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://austin.ohiastays.com/meteorescape/img/m04.jpg" alt="Living room seating area with a black coffee table and gallery wall" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><img src="https://austin.ohiastays.com/meteorescape/img/m01.jpg" alt="Vaulted living room with a blue-fringed kitchen bar, gold stools and plants" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p>High vaulted ceilings, a comfortable sofa and a sofa bed make the living room the heart of the house. Gather for a movie on the projector, or play a board game at the dining table.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-fire"></i>Backyard &amp; Fire Pit</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://austin.ohiastays.com/meteorescape/img/m22.jpg" alt="Backyard fire pit with chairs and a grassy fenced yard" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><img src="https://austin.ohiastays.com/meteorescape/img/m21.jpg" alt="Side patio with outdoor seating under string lights" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p>The private fenced backyard has a grassy space for dogs to play, a cozy sitting area with string lights, and a fire pit for starlit evenings.</p><p>Please never leave a fire unattended, put it out completely before you go inside, and follow any local burn bans.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-bed"></i>Bedrooms</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://austin.ohiastays.com/meteorescape/img/m12.jpg" alt="Primary bedroom with a queen bed, ceiling fan and a living-plant wall" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><img src="https://austin.ohiastays.com/meteorescape/img/m19.jpg" alt="Queen bedroom with a pink upholstered bed and rust throw" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><img src="https://austin.ohiastays.com/meteorescape/img/m17.jpg" alt="Bunk bedroom with a twin-over-full bunk bed and a yellow accent wall" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p><strong>Primary bedroom:</strong> a queen bed with soft linens and its own bathroom with a walk-in shower.</p><p><strong>Bedroom 2:</strong> another queen bed with soft linens.</p><p><strong>Bedroom 3:</strong> a twin-over-full bunk bed, great for kids and groups. Bunk bed use is at your own risk, so children must be
+supervised by an adult at all times, and please follow the weight limits.</p><p>The living-room sofa also folds out into a bed for an extra guest.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-bath"></i>Bathrooms</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://austin.ohiastays.com/meteorescape/img/m16.jpg" alt="Primary bathroom with a glass walk-in shower" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><img src="https://austin.ohiastays.com/meteorescape/img/m08.jpg" alt="Hall bathroom with a long vanity and tub and shower" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p>There are 2 full bathrooms. The primary bathroom has a walk-in shower, and the hall bathroom has a tub and shower combination. Shampoo, conditioner, body soap, shower gel and a hair dryer are provided.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-shirt"></i>Laundry</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>A washer is available for your stay, along with a clothes drying rack.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experiences">
+    <div class="container">
+      <h2>Explore Austin</h2>
+      <div class="section-divider"></div>
+      <p class="experiences-subtext">Open each box for a link to our local Top 5 list for that category.</p>
+      <div class="accordion-group" id="experienceNav">
+        <div class="accordion-item" id="cat-restaurants">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-utensils"></i>Top 5 Restaurants</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Texas BBQ, Tex-Mex and Austin staples, near and far.</p>
+                  <a class="experience-link-btn" href="https://austin.ohiastays.com/restaurants/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="cat-coffee">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-mug-hot"></i>Top 5 Coffee Shops</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Morning coffee, patios and places to work.</p>
+                  <a class="experience-link-btn" href="https://austin.ohiastays.com/coffee/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="cat-grocery">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-basket-shopping"></i>Top 5 Grocery Stops</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Where to stock the kitchen before you settle in.</p>
+                  <a class="experience-link-btn" href="https://austin.ohiastays.com/grocery/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="cat-hikes">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-person-hiking"></i>Top 5 Hikes</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Trails and greenbelts, with the dog-friendly ones flagged.</p>
+                  <a class="experience-link-btn" href="https://austin.ohiastays.com/hikes/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="cat-water">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-water"></i>Top 5 Swimming &amp; Paddling Spots</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Springs, pools and paddling around Austin.</p>
+                  <a class="experience-link-btn" href="https://austin.ohiastays.com/water/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="cat-sunset-drinks">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-music"></i>Top 5 Sunset Drinks &amp; Live Music</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Golden-hour patios and live music.</p>
+                  <a class="experience-link-btn" href="https://austin.ohiastays.com/sunset-drinks/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="map">
+    <div class="container">
+      <h2>Austin, Texas</h2>
+      <div class="section-divider"></div>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps?q=South+Austin,+TX&amp;output=embed" title="Map of South Austin, Texas" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="section-divider"></div>
+      <div class="contact-item"><i class="fas fa-comment-dots"></i><span>Message us any time through your booking app.</span></div>
+      <p class="contact-rules-note">Your full house rules are on your booking confirmation.</p>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="wifiModal">
+    <div class="modal">
+      <button class="modal-close" type="button" onclick="closeWifiModal()" aria-label="Close">&times;</button>
+      <h3>WiFi</h3>
+      <p class="modal-line">WiFi details are in your check-in message.</p>
+    </div>
+  </div>
+
+  <nav class="bottom-nav" id="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a class="nav-btn" href="#hero"><i class="fas fa-house"></i><span>Home</span></a>
+      <a class="nav-btn" href="#essential-info"><i class="fas fa-circle-info"></i><span>Info</span></a>
+      <a class="nav-btn" href="#experiences"><i class="fas fa-compass"></i><span>Explore</span></a>
+      <a class="nav-btn" href="#map"><i class="fas fa-map-location-dot"></i><span>Map</span></a>
+      <button class="nav-btn" type="button" onclick="openWifiModal()"><i class="fas fa-wifi"></i><span>WiFi</span></button>
+    </div>
+  </nav>
+
+  <script>
+    function toggleAccordion(btn) {
+      var item = btn.parentElement;
+      var content = btn.nextElementSibling;
+      var isActive = item.classList.contains('active');
+      var group = item.closest('.accordion-group');
+      group.querySelectorAll('.accordion-item').forEach(function(i) {
+        i.classList.remove('active');
+        i.querySelector('.accordion-content').style.removeProperty('max-height');
+      });
+      if (!isActive) {
+        item.classList.add('active');
+        content.style.setProperty('max-height', content.scrollHeight + 'px', 'important');
+      }
+    }
+    function openWifiModal() { document.getElementById('wifiModal').classList.add('active'); }
+    function closeWifiModal() { document.getElementById('wifiModal').classList.remove('active'); }
+    document.getElementById('wifiModal').addEventListener('click', function(e) {
+      if (e.target === this) closeWifiModal();
+    });
+    var sections = document.querySelectorAll('section[id]');
+    var navBtns = document.querySelectorAll('.nav-btn[href]');
+    window.addEventListener('scroll', function() {
+      var current = '';
+      sections.forEach(function(s) { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+      navBtns.forEach(function(btn) { btn.classList.toggle('active', btn.getAttribute('href') === '#' + current); });
+    });
+  </script>
+</div>
+</body>
+</html>
