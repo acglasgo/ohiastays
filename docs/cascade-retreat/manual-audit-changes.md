@@ -141,3 +141,6 @@ Knowledge Hub:
 | Nightly rate ($449.67) | Deleted | Stale pricing that an assistant could quote |
 
 Left unchanged on purpose, host's call: early check-in $200 / $25 per hour and late check-out $100 (paid options; the Wine home's early check-in fee was also kept), the rebook-in-the-fall option in Pricing & Discounts, the 25-and-older booking rule, the property address (booked guests only), and the WiFi item.
+
+Additional rules added to the Cascade listing (Rules tab, House rules field, 2026-11-24, confirmed after a reload): check-in and checkout times, 10 guests, no parties or events, no smoking or vaping, no pets (ADA service animals only), quiet hours 10 PM to 7 AM, hot tub and pool safety (no lifeguard, children supervised, no glass, no soaps or oils), hot tub no jumping or diving and not above 104 degrees F, fire feature and fireplace safety, backyard lights off by 11 PM, and the three allowed checkout tasks (trash and recycling to the bins left of the driveway, lights and TVs off, lock doors and windows).
+Not added: the 20-minute soak limit and doctor-consult advice (kept as tips in the guidebook), and the checkout tasks list in Hospitable still holds only "Lock up".
