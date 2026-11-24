@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>The Cascade Retreat at Lake Chelan · Guest Guidebook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /*
+     * GHL COMPATIBILITY: all visual properties use !important, hardcoded hex, no CSS variables.
+     * Everything lives inside <div class="page-wrapper">.
+     */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html, body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      background: #0f1419 !important;
+      background-color: #0f1419 !important;
+      color: #e8e0d8 !important;
+      line-height: 1.6;
+      overflow-x: hidden;
+      padding-bottom: 72px;
+    }
+    /* bstrw:ghl-full-bleed v1: do not strip. GHL discards html/body and boxes the markup in a ~1150px Row;
+       the 100vw + negative-margin breakout is what removes the white gutters. Never use a transform here. */
+    .page-wrapper {
+      background: #0f1419 !important;
+      background-color: #0f1419 !important;
+      color: #e8e0d8;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      width: 100vw;
+      max-width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+    }
+    .page-wrapper a { text-decoration: none !important; }
+    .page-wrapper h1, .page-wrapper h2, .page-wrapper h3, .page-wrapper h4 { color: #e8e0d8 !important; }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', Georgia, serif !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.02em !important;
+      line-height: 1.2 !important;
+    }
+    h1 { font-size: clamp(2.2rem, 6vw, 4rem) !important; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.5rem) !important; color: #c9a96e !important; }
+    h3 { font-size: clamp(1.2rem, 3vw, 1.6rem) !important; }
+    p { font-size: 0.95rem !important; color: #b5c7d2 !important; line-height: 1.7 !important; margin-bottom: 12px !important; }
+
+    .container { max-width: 680px !important; margin: 0 auto !important; padding: 0 20px !important; }
+    .section { padding: 60px 0 !important; }
+    .section-divider { width: 60px !important; height: 1px !important; background: #c9a96e !important; margin: 14px 0 24px 0 !important; opacity: 0.7 !important; }
+
+    /* === HERO === */
+    .hero {
+      position: relative !important;
+      min-height: 100vh !important;
+      display: flex !important;
+      align-items: flex-end !important;
+      padding: 0 20px 80px !important;
+      background-size: cover !important;
+      background-position: center !important;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(27,45,58,0.1) 0%, rgba(27,45,58,0.45) 50%, rgba(27,45,58,0.96) 100%);
+    }
+    .hero-content { position: relative !important; z-index: 2 !important; max-width: 680px !important; margin: 0 auto !important; width: 100% !important; }
+    .hero-eyebrow { font-family: 'Inter', sans-serif !important; font-size: 0.75rem !important; font-weight: 500 !important; letter-spacing: 0.2em !important; text-transform: uppercase !important; color: #c9a96e !important; margin-bottom: 12px !important; }
+    .hero h1 { color: #ffffff !important; margin-bottom: 16px !important; font-weight: 400 !important; }
+    /* Sits over the hero photo: the text-shadow keeps it legible on any image (the one allowed shadow). */
+    .hero-location { font-size: 0.9rem !important; color: rgba(255,255,255,0.9) !important; text-shadow: 0 2px 14px rgba(0,0,0,0.65), 0 1px 3px rgba(0,0,0,0.5); margin-bottom: 32px !important; }
+    .hero-location i { color: #c9a96e !important; margin-right: 6px !important; }
+    .hero-cta {
+      display: inline-flex !important; align-items: center !important; gap: 10px !important;
+      padding: 14px 32px !important; background: transparent !important;
+      border: 1px solid #c9a96e !important; color: #c9a96e !important;
+      font-family: 'Inter', sans-serif !important; font-size: 0.8rem !important; font-weight: 500 !important;
+      letter-spacing: 0.15em !important; text-transform: uppercase !important;
+      transition: all 0.3s ease !important;
+    }
+    .hero-cta:hover { background: rgba(106,189,210,0.12) !important; }
+
+    /* === HERO WELCOME SCRIPT === */
+    .hero-welcome {
+      position: absolute !important; inset: 0 !important; z-index: 1 !important;
+      display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important;
+      padding-bottom: max(20vh, 190px) !important; pointer-events: none !important;
+    }
+    .hero-welcome-text {
+      font-family: 'Alex Brush', cursive !important; font-weight: 400 !important;
+      font-size: clamp(6rem, min(26vw, 26vh), 20rem) !important; line-height: 1 !important;
+      color: #e8e0d8 !important; text-align: center !important;
+      padding: 0 0.1em !important;
+      /* Two-layer text-shadow is the only way to bolden a connected script font. Never a per-glyph text stroke: it seams at the letter joins. */
+      text-shadow: 0 4px 10px rgba(0,0,0,0.6), 0 18px 48px rgba(0,0,0,0.55);
+      /* CRITICAL: clip-path has NO important flag on purpose. A static important declaration always beats a keyframe animation on the same property, freezing the reveal. */
+      clip-path: inset(0 100% 0 -2%);
+      animation: heroWelcomeReveal 2s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s both !important;
+    }
+    @media (max-width: 480px) {
+      .hero-welcome-text { font-size: clamp(4rem, min(20vw, 20vh), 7.5rem) !important; }
+    }
+    .hero-welcome-flourish { width: clamp(220px, 42vw, 440px) !important; height: auto !important; margin-top: clamp(-3.5rem, -7vw, -2rem) !important; display: block !important; overflow: visible !important; }
+    .hero-welcome-flourish path {
+      fill: none !important; stroke: #c9a96e !important; stroke-width: 4 !important; stroke-linecap: round !important;
+      stroke-dasharray: 450 !important;
+      /* Same rule as clip-path: the dashoffset must carry no important flag or the draw animation can never override it. */
+      stroke-dashoffset: 450;
+      animation: heroWelcomeFlourish 1.3s cubic-bezier(0.165, 0.84, 0.44, 1) 1.4s both !important;
+    }
+    @keyframes heroWelcomeReveal {
+      0% { clip-path: inset(0 100% 0 -2%); }
+      72% { clip-path: inset(0 9% 0 -2%); }
+      100% { clip-path: inset(0 -3% 0 -2%); }
+    }
+    @keyframes heroWelcomeFlourish {
+      from { stroke-dashoffset: 450; }
+      to { stroke-dashoffset: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-welcome-text { animation: none !important; clip-path: inset(0 -3% 0 -2%) !important; }
+      .hero-welcome-flourish path { animation: none !important; stroke-dashoffset: 0 !important; }
+      .accordion-trigger:hover .chevron { transform: none !important; }
+    }
+
+    /* === WELCOME === */
+    .facts-line { display: flex !important; flex-wrap: wrap !important; gap: 8px 22px !important; margin: 22px 0 !important; padding: 14px 0 !important; border-top: 1px solid rgba(255,255,255,0.08) !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; font-size: 0.82rem !important; color: #9a928a !important; }
+    .facts-line span { color: #9a928a !important; }
+    .facts-line b { font-family: 'Cormorant Garamond', serif !important; font-size: 1.25rem !important; font-weight: 600 !important; color: #c9a96e !important; margin-right: 4px !important; }
+    .signoff { font-family: 'Cormorant Garamond', serif !important; font-size: 1.25rem !important; font-style: italic !important; color: #e8e0d8 !important; margin-top: 8px !important; }
+
+    /* === ACCORDION === */
+    .accordion-group { display: flex !important; flex-direction: column !important; gap: 2px !important; }
+    .accordion-item { background: rgba(255,255,255,0.03) !important; border: 1px solid rgba(255,255,255,0.06) !important; overflow: hidden !important; transition: background 0.3s ease !important; }
+    .accordion-item:hover { background: rgba(255,255,255,0.05) !important; }
+    .accordion-trigger {
+      width: 100% !important; display: flex !important; align-items: center !important; justify-content: space-between !important;
+      padding: 18px 20px !important; background: none !important; border: none !important; cursor: pointer !important;
+      color: #e8e0d8 !important; font-family: 'Inter', sans-serif !important; font-size: 0.85rem !important; font-weight: 500 !important;
+      letter-spacing: 0.05em !important; text-transform: uppercase !important; text-align: left !important;
+    }
+    .accordion-trigger i:first-child { color: #c9a96e !important; width: 20px !important; margin-right: 14px !important; font-size: 0.9rem !important; }
+    .accordion-trigger i.gold { color: #c9a96e !important; }
+    .accordion-trigger .chevron {
+      font-size: 0.95rem !important;
+      color: rgba(106,189,210,0.55) !important;
+      transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), color 0.25s ease !important;
+    }
+    .accordion-item:not(.active) .accordion-trigger:hover .chevron { color: #c9a96e !important; transform: translateY(3px) !important; }
+    /* CRITICAL: no important flag on max-height 0. The toggle script sets it with setProperty(..., 'important') to open and removeProperty to close. */
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .accordion-content-inner { padding: 0 20px 20px 54px !important; }
+    .accordion-content-inner p { font-size: 0.88rem !important; line-height: 1.7 !important; color: #b9b1a7 !important; }
+    .accordion-content-inner p.tip { background: rgba(201,169,110,0.07) !important; border: 1px solid rgba(201,169,110,0.25) !important; border-radius: 4px !important; padding: 10px 14px !important; margin: 12px 0 !important; }
+    .accordion-content-inner p.tip strong { color: #c9a96e !important; font-weight: 600 !important; }
+    .accordion-item.active .chevron { transform: rotate(180deg) !important; }
+    .accordion-item.active { background: rgba(255,255,255,0.05) !important; }
+    .accordion-item.active .accordion-trigger i:first-child { opacity: 1 !important; transform: scale(1.05) !important; }
+    .accordion-content-inner--experience { padding: 0 20px 20px 20px !important; }
+    .key { font-family: 'Cormorant Garamond', serif !important; font-size: 1.3rem !important; font-weight: 600 !important; color: #c9a96e !important; }
+    .key-small { color: #c9a96e !important; font-weight: 500 !important; }
+    .task-list, .help-list { list-style: none !important; margin: 4px 0 14px 0 !important; }
+    .task-list li, .help-list li { font-size: 0.88rem !important; line-height: 1.6 !important; color: #b9b1a7 !important; padding: 8px 0 !important; border-bottom: 1px solid rgba(255,255,255,0.05) !important; }
+    .help-list li strong { color: #e8e0d8 !important; font-weight: 500 !important; }
+
+    .amenity-photo { width: 100% !important; height: auto !important; max-height: 240px !important; object-fit: cover !important; border-radius: 4px !important; margin-bottom: 12px !important; display: block !important; }
+
+    /* === EXPERIENCES (link-only) === */
+    .experiences-subtext { color: #9a928a !important; font-size: 0.9rem !important; line-height: 1.7 !important; margin: -8px 0 24px 0 !important; }
+    .experience-cards {
+      display: flex !important; flex-direction: column !important; gap: 16px !important;
+      border: 1px solid rgba(106,189,210,0.18) !important; border-radius: 8px !important;
+      padding: 16px !important; background: rgba(255,255,255,0.015) !important;
+    }
+    .experience-link-card { display: flex !important; flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+    .experience-link-card .description { font-size: 0.88rem !important; color: #b9b1a7 !important; margin: 0 !important; }
+    .experience-link-btn {
+      display: inline-flex !important; align-items: center !important; gap: 10px !important;
+      padding: 12px 24px !important; border: 1px solid #c9a96e !important; background: transparent !important; color: #c9a96e !important;
+      font-family: 'Inter', sans-serif !important; font-size: 0.75rem !important; font-weight: 500 !important;
+      letter-spacing: 0.12em !important; text-transform: uppercase !important; transition: all 0.3s ease !important;
+    }
+    .experience-link-btn:hover { background: rgba(106,189,210,0.12) !important; }
+
+    /* === MAP === */
+    .map-container { width: 100% !important; height: 400px !important; border: 1px solid rgba(255,255,255,0.06) !important; }
+    .map-container iframe { width: 100% !important; height: 100% !important; border: none !important; }
+
+    /* === CONTACT === */
+    .contact-item { display: flex !important; align-items: center !important; gap: 14px !important; padding: 14px 0 !important; border-bottom: 1px solid rgba(255,255,255,0.06) !important; color: #b5c7d2 !important; font-size: 0.9rem !important; }
+    .contact-item i { color: #c9a96e !important; width: 18px !important; text-align: center !important; }
+    .contact-rules-note { margin-top: 18px !important; font-size: 0.85rem !important; color: #9a928a !important; }
+
+    /* === WIFI MODAL === */
+    .modal-overlay { display: none; position: fixed !important; inset: 0 !important; background: rgba(0,0,0,0.75) !important; z-index: 2000 !important; align-items: center !important; justify-content: center !important; padding: 20px !important; }
+    .modal-overlay.active { display: flex !important; }
+    .modal { background: #223847 !important; border: 1px solid rgba(106,189,210,0.25) !important; max-width: 380px !important; width: 100% !important; padding: 40px 32px !important; text-align: center !important; position: relative !important; }
+    .modal-close { position: absolute !important; top: 12px !important; right: 16px !important; background: none !important; border: none !important; color: #9a928a !important; font-size: 1.4rem !important; cursor: pointer !important; }
+    .modal h3 { color: #c9a96e !important; font-size: 0.75rem !important; font-family: 'Inter', sans-serif !important; font-weight: 500 !important; letter-spacing: 0.2em !important; text-transform: uppercase !important; margin-bottom: 20px !important; }
+    .modal-line { font-family: 'Cormorant Garamond', serif !important; font-size: 1.35rem !important; color: #ffffff !important; }
+
+    /* === BOTTOM NAV === */
+    .bottom-nav { position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; background: #14222c !important; border-top: 1px solid rgba(255,255,255,0.08) !important; z-index: 1000 !important; padding: 8px 0 !important; padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)) !important; }
+    .bottom-nav-inner { max-width: 480px !important; margin: 0 auto !important; display: flex !important; justify-content: space-around !important; }
+    .nav-btn { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 3px !important; background: none !important; border: none !important; color: #6f8999 !important; cursor: pointer !important; padding: 6px 14px !important; transition: color 0.2s !important; -webkit-tap-highlight-color: transparent; }
+    .nav-btn:hover, .nav-btn.active { color: #c9a96e !important; }
+    .nav-btn i { font-size: 1.1rem !important; }
+    .nav-btn span { font-size: 0.6rem !important; font-weight: 500 !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; font-family: 'Inter', sans-serif !important; }
+
+    @media (max-width: 480px) {
+      .hero { padding: 0 16px 60px !important; }
+      .section { padding: 40px 0 !important; }
+      .container { padding: 0 16px !important; }
+      .accordion-trigger { padding: 16px !important; }
+      .accordion-content-inner { padding: 0 16px 16px 44px !important; }
+      .accordion-content-inner--experience { padding: 0 16px 16px 16px !important; }
+      .map-container { height: 320px !important; }
+    }
+
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <section class="hero" id="hero" style="background-image: url('https://chelan.ohiastays.com/cascaderetreat/img/A7409625.jpg');">
+    <div class="hero-welcome">
+      <span class="hero-welcome-text">Welcome</span>
+      <svg class="hero-welcome-flourish" viewBox="0 0 300 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M8,18 C 70,2 110,34 150,18 C 190,2 230,34 292,16" />
+      </svg>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Your Chelan Home Base</div>
+      <h1>The Cascade Retreat at Lake Chelan</h1>
+      <p class="hero-location"><i class="fas fa-map-marker-alt"></i> Chelan, WA</p>
+      <a href="#welcome" class="hero-cta">Begin Your Stay <i class="fas fa-arrow-down"></i></a>
+    </div>
+  </section>
+
+  <section class="section" id="welcome">
+    <div class="container">
+      <h2>Welcome to Chelan</h2>
+      <div class="section-divider"></div>
+      <p>We are so glad you are here. This multi-level Chelan home has 3 bedrooms and 3 and a half bathrooms for up to 10 guests, with a movie theater, a backyard gym and fire features. Soak in the hot tub from October to April or take a dip in the pool from May to September. Children must be
+supervised by an adult at all times.</p>
+      <p>Downtown Chelan is about a 10-minute walk away, and the lake and the valley's wineries are close by. Here is how everything in the house works, with our favorite places to explore after that.</p>
+      <p class="facts-line"><span><b>10</b> guests</span><span><b>3</b> bedrooms</span><span><b>3.5</b> bathrooms</span><span><b>10 min</b> walk to downtown</span></p>
+      <p class="signoff">Charlotte &amp; Miso</p>
+    </div>
+  </section>
+
+  <section class="section" id="essential-info">
+    <div class="container">
+      <h2>Essential Info</h2>
+      <div class="section-divider"></div>
+      <div class="accordion-group" id="essentialGroup">
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-key"></i>Check-in &amp; Arrival</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p><span class="key">4 PM</span> check-in. This home has self check-in with a smart lock, so you can arrive on your own schedule after 4 PM.</p><p>Your door code and address arrive in your check-in message, 3 days before check-in.</p><p>Hoping to arrive earlier? Message us through your booking app and we will do our best.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-square-parking"></i>Parking</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Free parking is in the driveway.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-car-side"></i>Getting Around</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>A car is the easiest way to arrive, and it is nice to have wheels for all the adventures nearby. The house is just off the main road in Chelan, about a 10-minute walk from downtown.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-wifi"></i>WiFi</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>WiFi details are in your check-in message.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-temperature-half"></i>Heating &amp; A/C</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>The thermostat is on the main floor, across from the staircase. Turn the display ring left or right until the temperature you want appears on the screen.</p><p>To switch between Heat and A/C, press the dial in to bring up the menu, turn the ring to Settings and press, turn it to Heat or Cool, then press again to confirm.</p><p class="tip"><strong>Tips:</strong> we recommend keeping the A/C around 68F or warmer and the heat around 74F or cooler, with doors and windows closed, to keep the house comfortable and efficient. If the air feels uneven, closing the downstairs vents and opening the living room and upstairs vents helps spread the temperature more evenly.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-moon"></i>Good Neighbors &amp; Cameras</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Our neighbors love their beauty sleep, so we hope you will keep things low-key between <span class="key">10 PM and 7 AM</span>.</p><p>There are exterior security cameras in the backyard, front yard and side yard, and a noise monitor in the main living area and the backyard. Your privacy indoors is respected.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-door-open"></i>Check-out</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p><span class="key">10 AM</span> check-out. Before you head out:</p><ul class="task-list"><li>Trash and recycling go into the bins to the left of the driveway.</li><li>Lights and TVs off.</li><li>Lock any doors and windows you opened during your stay.</li></ul><p>Thank you for taking care of our home. Safe travels!</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-house-chimney"></i>House Basics</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>This home welcomes up to 10 guests. Children and infants are welcome, and a baby gate and a pack and play are provided.</p><p>No parties or events. This is a smoke-free home, including the outside area around the property, and that covers smoking or vaping of any substance.</p><p>The home is pet-free because many people are allergic, so please leave furry friends at home.</p><p>If something breaks during your stay, please tell us through your booking app so we can repair or replace it for the next guest.</p><p>Accessibility: there are two steps up to the main house, and the main floor has a bathtub only, with no shower.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-kit-medical"></i>Emergency &amp; Nearby Help</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>In an emergency, call <span class="key">911</span>.</p><p>Nearby non-emergency help:</p><ul class="help-list"><li><strong>Chelan County Sheriff&#x27;s Office</strong><br>207 N Emerson St, Chelan, WA 98816<br><span class="key-small">(509) 682-2588</span></li><li><strong>Chelan Fire and Rescue</strong><br>232 E Wapato Ave, Chelan, WA 98816<br><span class="key-small">(509) 682-4476</span></li><li><strong>Lake Chelan Community Hospital</strong><br>503 East Highland Ave, Chelan, WA 98816<br><span class="key-small">(509) 687-3222</span></li><li><strong>Lake Chelan Clinic</strong><br>219 E Johnson Ave, Chelan, WA 98816<br><span class="key-small">(509) 682-2511</span></li><li><strong>Closest pharmacy</strong><br>106 W Manson Rd, Chelan, WA 98816<br><span class="key-small">(509) 682-4087</span></li></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="property">
+    <div class="container">
+      <h2>Around the House</h2>
+      <div class="section-divider"></div>
+      <div class="accordion-group" id="amenityGroup">
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-hot-tub-person"></i>Hot Tub &amp; Pool (Seasonal)</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>The hot tub is open <span class="key">October 1 to April 30</span> and the pool is open <span class="key">May 1 to September 30</span>. Both are in the backyard with a waterfall and a fire feature, and two sliding doors lead straight out from the lower level.</p><p>Use of the hot tub and pool is at your own risk. Children must be
+supervised by an adult at all times.</p><p class="tip"><strong>Tips:</strong> we recommend a quick shower with soap and water before you get in, keeping the cover on whenever the tub is not in use, and leaving glass and soaps or oils out of the water and away from the edge. Enter and exit carefully so no one slips, skip the jumping and diving, and keep soaks to about 20 minutes. We suggest skipping the hot tub if the water is over 104F. Anyone with heart disease, diabetes, blood pressure concerns, a serious illness or a pregnancy should check with a doctor first.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-fire-flame-curved"></i>Fire Feature</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>The fire feature by the water runs on propane. The propane tank is on the left side of the backyard water area.</p><p><strong>To turn it on:</strong></p><ul class="task-list"><li>Remove the protective box lid.</li><li>At the top of the tank, turn the silver knob to the "open" position.</li><li>Move the green lever on the gas hose switch downward.</li><li>Use the lighter provided, holding it at the furthest edge of the fire feature.</li></ul><p><strong>To turn it off:</strong></p><ul class="task-list"><li>Turn the silver knob to the "close" position.</li><li>Lift the green lever back up to where you found it.</li><li>Cover the propane tank with the protective box lid.</li></ul><p class="tip"><strong>Safety:</strong> always take care around the propane tank, and keep the area clear of anything flammable.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-couch"></i>Living Room</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409608.jpg" alt="Living room seen from above, with a fireplace under a TV, a navy sofa, a leather armchair and french doors" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p>The main-level living room is a cozy spot with a smart TV, comfortable seating, an indoor fireplace and french doors that let in plenty of light. There is also a queen pull-out couch here for extra sleeping space.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-fire"></i>Indoor Fireplace</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409627.jpg" alt="Close view of the living-room fireplace with a lit flame and a TV above it" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p>The living-room fireplace runs on propane. Turn it on with the wall timer on the left side of the fireplace. The timer helps avoid leaving it on for long stretches by accident.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-film"></i>Movie Theater &amp; Projector</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409569.jpg" alt="Theater room with a sectional couch, large bean bag chairs, a projector screen and a sliding door" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p>The lower level is set up for movie nights, with a 100-inch projector screen, sound system, a sectional couch, two bean bag chairs, and plenty of pillows and blankets.</p><p>The Samsung projector and entertainment system are yours to use. The white remote controls power, sound and all features. You can even talk into it!</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-dumbbell"></i>Backyard Gym</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409635.jpg" alt="Home gym with a weight machine, bench, dumbbells, an exercise ball and a sliding door" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p>The converted backyard shed is a home gym and workout space, a handy way to start the day before heading out to the lake.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-utensils"></i>Kitchen, Coffee &amp; Waffle Bar</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409504.jpg" alt="Kitchen with granite counters, farmhouse sink, stainless dishwasher, microwave and cooktop" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409484.jpg" alt="Wooden dining table with a bench and woven chairs beside the kitchen, loft railing above" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409619.jpg" alt="Bar area with a sink, a microwave and an under-counter beverage fridge" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p>The full kitchen has a dishwasher, induction stove, microwave and a pantry of small appliances, ready for big group meals. For coffee lovers there is a coffee pot, Keurig and an espresso machine.</p><p>Next to the kitchen is the waffle bar, with a waffle maker, syrups, sprinkles and other treats. There is also a wine fridge, a wet bar and a set of assorted bar glasses.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-fire-burner"></i>BBQ Grill &amp; Patio</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>An outdoor grill is ready for backyard feasts, along with a dining table and chairs for meals outside. In high season, sun loungers and outdoor games are out for your use.</p><p class="tip"><strong>Tips:</strong> we recommend leaving the grill clean after use so it is ready for the next cook. On bad-weather days, the lounger cushions are happiest in the shed.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-lightbulb"></i>Outdoor Lights</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>The backyard lights are on the house, the shed and a string of lights. The switches for the shed and string lights are at the left corner of the shed.</p><p class="tip"><strong>Tip:</strong> we recommend turning the backyard lights off by 11 PM, or whenever you are done outside, to be considerate of the neighbors.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-shirt"></i>Washer &amp; Dryer</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409626.jpg" alt="Washer and dryer in the laundry room, with cabinets above" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p>The washer and dryer are in the laundry room off the kitchen. Press the power button and add detergent: pods or sheets go inside the drum, and powdered detergent goes in the dispenser.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-children"></i>Little Guests</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>A baby gate and a pack and play are provided. The loft has carpeted floor space that is perfect for playtime.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-bed"></i>Bedrooms &amp; Bathrooms</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409531.jpg" alt="Bedroom with a bed, wall-mounted TV, ceiling fan and a walk-in closet through an open door" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409558.jpg" alt="Loft bedroom with a four-poster bed, a twin bed in a nook and a closet" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409589.jpg" alt="Bedroom with a bed, nightstands, a barn door and a sliding door to the backyard" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409606.jpg" alt="Claw-foot bathtub with decorative oars on the wall and bottles of bath products" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><img src="https://chelan.ohiastays.com/cascaderetreat/img/A7409585.jpg" alt="Bathroom with a pedestal sink and a walk-in glass shower" class="amenity-photo" loading="lazy" onerror="this.style.display='none'"><p><strong>Main level:</strong> the primary bedroom has a queen bed, a claw-foot bathtub, a walk-in closet and a flat-screen TV. There is a half bathroom on this level, and a queen pull-out couch in the living room for extra sleeping space.</p><p><strong>Loft:</strong> a bedroom with two twin beds and one full bed, two closets with hanging racks and drawers under the twin beds, and a full bathroom.</p><p><strong>Lower level:</strong> a queen bed with a chest of drawers and hanging rack, and a full bathroom with a walk-in shower.</p><p>Bathrooms are stocked with shampoo, conditioner, body wash, hair dryers and robes for a spa-like touch.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-mountain-sun"></i>Front Porch &amp; Views</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <p>Out front you will find two sitting chairs and a swinging bench for your morning coffee, a hummingbird feeder and a birdfeeder to enjoy nature up close, and mountain views.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experiences">
+    <div class="container">
+      <h2>Explore Chelan</h2>
+      <div class="section-divider"></div>
+      <p class="experiences-subtext">Open each box for a link to our local Top 5 list for that category.</p>
+      <div class="accordion-group" id="experienceNav">
+        <div class="accordion-item" id="cat-restaurants">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-utensils "></i>Top 5 Restaurants</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Where to eat in town, from easy family dinners to a special night out.</p>
+                  <a class="experience-link-btn" href="https://chelan.ohiastays.com/restaurants/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="cat-coffee">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-mug-hot "></i>Top 5 Coffee Shops</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Morning coffee and a pastry near downtown.</p>
+                  <a class="experience-link-btn" href="https://chelan.ohiastays.com/coffee/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="cat-grocery">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-basket-shopping "></i>Top 5 Grocery Stops</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Where to stock the kitchen before you settle in.</p>
+                  <a class="experience-link-btn" href="https://chelan.ohiastays.com/grocery/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="cat-wineries">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-wine-glass gold"></i>Top 5 Wineries &amp; Breweries</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Tasting rooms and brewery stops around the valley.</p>
+                  <a class="experience-link-btn" href="https://chelan.ohiastays.com/wineries/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="cat-beach">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-umbrella-beach "></i>Top 5 Beach &amp; Water</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Lake access and water days around Chelan.</p>
+                  <a class="experience-link-btn" href="https://chelan.ohiastays.com/beach/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="cat-family">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-children "></i>Top 5 Family Fun</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Easy ideas for days with kids.</p>
+                  <a class="experience-link-btn" href="https://chelan.ohiastays.com/family/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="cat-hikes">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-person-hiking "></i>Top 5 Hikes</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Trails with big lake and mountain views.</p>
+                  <a class="experience-link-btn" href="https://chelan.ohiastays.com/hikes/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item" id="cat-sunset-drinks">
+          <button class="accordion-trigger experience-nav-item" onclick="toggleAccordion(this)">
+            <span><i class="fas fa-music "></i>Top 5 Sunset Drinks &amp; Live Music</span>
+            <i class="fas fa-chevron-down chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner accordion-content-inner--experience">
+              <div class="experience-cards">
+                <div class="experience-link-card">
+                  <p class="description">Golden-hour drinks and live music near the lake.</p>
+                  <a class="experience-link-btn" href="https://chelan.ohiastays.com/sunset-drinks/">See the Top 5 <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="map">
+    <div class="container">
+      <h2>Chelan, Washington</h2>
+      <div class="section-divider"></div>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps?q=Chelan,+WA&amp;output=embed" title="Map of Chelan, Washington" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="section-divider"></div>
+      <div class="contact-item"><i class="fas fa-comment-dots"></i><span>Message us any time through your booking app.</span></div>
+      <p class="contact-rules-note">Your full house rules are on your booking confirmation.</p>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="wifiModal">
+    <div class="modal">
+      <button class="modal-close" type="button" onclick="closeWifiModal()" aria-label="Close">&times;</button>
+      <h3>WiFi</h3>
+      <p class="modal-line">WiFi details are in your check-in message.</p>
+    </div>
+  </div>
+
+  <nav class="bottom-nav" id="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a class="nav-btn" href="#hero"><i class="fas fa-house"></i><span>Home</span></a>
+      <a class="nav-btn" href="#essential-info"><i class="fas fa-circle-info"></i><span>Info</span></a>
+      <a class="nav-btn" href="#experiences"><i class="fas fa-compass"></i><span>Explore</span></a>
+      <a class="nav-btn" href="#map"><i class="fas fa-map-location-dot"></i><span>Map</span></a>
+      <button class="nav-btn" type="button" onclick="openWifiModal()"><i class="fas fa-wifi"></i><span>WiFi</span></button>
+    </div>
+  </nav>
+
+  <script>
+    function toggleAccordion(btn) {
+      var item = btn.parentElement;
+      var content = btn.nextElementSibling;
+      var isActive = item.classList.contains('active');
+      var group = item.closest('.accordion-group');
+      group.querySelectorAll('.accordion-item').forEach(function(i) {
+        i.classList.remove('active');
+        i.querySelector('.accordion-content').style.removeProperty('max-height');
+      });
+      if (!isActive) {
+        item.classList.add('active');
+        content.style.setProperty('max-height', content.scrollHeight + 'px', 'important');
+      }
+    }
+    function openWifiModal() { document.getElementById('wifiModal').classList.add('active'); }
+    function closeWifiModal() { document.getElementById('wifiModal').classList.remove('active'); }
+    document.getElementById('wifiModal').addEventListener('click', function(e) {
+      if (e.target === this) closeWifiModal();
+    });
+    var sections = document.querySelectorAll('section[id]');
+    var navBtns = document.querySelectorAll('.nav-btn[href]');
+    window.addEventListener('scroll', function() {
+      var current = '';
+      sections.forEach(function(s) { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+      navBtns.forEach(function(btn) { btn.classList.toggle('active', btn.getAttribute('href') === '#' + current); });
+    });
+  </script>
+</div>
+</body>
+</html>
