@@ -120,3 +120,24 @@ Not used (25): E01b (duplicate of E01), E02, E06, E14, E15, E16, E17, E18, E19, 
 Still no photo: grill itself, waffle bar, espresso station, baby gate and pack and play.
 
 Checks after this pass: compliance scan pass; rules cross-check pass; forbidden-term greps all 0; required ids present, 30 accordions, no box-shadow, no em dashes; 24 image references all exist in C/web, 23 images all with alt text. Structure checked locally.
+
+## H. Hospitable changes made 2026-11-24 (Cascade, property UUID a65a06c7-1729-48c5-9de8-75ccf0fb1bf3)
+
+Listing fields (done in the Hospitable dashboard, confirmed by reading the property back):
+- House manual field and Guidebook guest-resource link: both changed from the Canva edit link to https://chelan.ohiastays.com/cascaderetreat/.
+- Checkout tasks: removed "Collect and rinse all dishes, put dirty dishes in the dishwasher and start it" and "Leave towels in the bath tub and/or shower". Kept "Hit the lock button on the smart lock".
+
+Knowledge Hub:
+| Item | Change | Why |
+|---|---|---|
+| Guidebook link (Before Arrival) | Replaced the Canva edit link with the new guidebook and the Chelan guides page | Old public edit link |
+| Departure checklist | Removed dishwasher, leave beds unmade and towels on beds; kept trash to the bins left of the driveway and lock doors and windows | Tasks outside the allowed list |
+| Breakages | Removed "we try not to charge... discuss before you leave"; now "let us know through the booking app" | Charge wording |
+| Quiet hours | 10 PM to 8 AM changed to 10 PM to 7 AM | House standard |
+| Service animals and vaping | Removed "vaping is allowed outside"; now no smoking or vaping anywhere | Contradicted the smoking policy item and the manual |
+| Second property across the street | Removed the Airbnb booking link; guests message the host in the app | Cross-listing booking link |
+| Pool and hot tub dates | Now "pool May 1 to Sept 30 (not heated), heated hot tub Oct 1 to April 30" | Matched the listing |
+| Group size fee ("groups larger than 10 pay a per-person fee") | Deleted | Conflicts with the 10-guest maximum; fee wording |
+| Nightly rate ($449.67) | Deleted | Stale pricing that an assistant could quote |
+
+Left unchanged on purpose, host's call: early check-in $200 / $25 per hour and late check-out $100 (paid options; the Wine home's early check-in fee was also kept), the rebook-in-the-fall option in Pricing & Discounts, the 25-and-older booking rule, the property address (booked guests only), and the WiFi item.
