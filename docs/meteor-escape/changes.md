@@ -17,7 +17,7 @@
 - Things-to-do items replaced with the live market pages (Yard Bar closed May 2026; The Salt Lick and others out of range).
 - Added quiet hours and fire pit rules, and the guidebook link.
 
-## Still open
-- Hospitable's hidden default house-rules text still contains the $100 pet fee line (no channel shows it; "Set one value" would overwrite the Vrbo text).
-- Airbnb "Guest access" text says "exclusive access ... covered carport", but the packet describes a driveway shared with the neighboring unit.
-- The Canva edit link is still publicly shared.
+## Follow-up (same day)
+- The hidden default house-rules text also lost the $100 pet fee line; the new rules are now the saved default (Airbnb and Direct use it), and Vrbo keeps its own override without the fee line.
+- Airbnb "Guest access" wording left as is, by the host's decision (it is a duplex and guests can access the entire unit).
+- The Canva edit link was restricted by the host.
