@@ -19,6 +19,8 @@
 ## Knowledge Hub
 - Noise sensor and indoor monitor wording removed; fee wording (rule breaks, smoking, early check-in) removed; "events allowed" and ESA-only pet items replaced with pets welcome and no parties or events; check-in placeholder fixed; departure list, review ask and breakage text cleaned; laundry location corrected; WiFi and address items point to the check-in message; Arrival and Things to Do items added with the guidebook and market-page links.
 
+## Follow-up (2026-11-25)
+- The host confirmed there is no noise monitor at this property, so the guidebook no longer mentions one (only the exterior cameras above the front and back doors), and the Knowledge Hub noise wording stays removed. No listing disclosure is needed.
+
 ## Still open
-- The page itself still says a monitor inside the home measures noise levels (it is accurate; the listing text only mentions cameras at the entrances). Airbnb asks hosts to disclose noise monitors in the listing, so consider adding one line to "Things to know".
 - The Canva edit link for this manual may still be publicly shared.
