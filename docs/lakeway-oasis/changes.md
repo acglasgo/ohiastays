@@ -16,8 +16,11 @@
 ## Knowledge Hub
 - WiFi and address items now say they arrive in the check-in message; pet fees, the extra-guest fee and the dishwasher, unmade-beds and towels departure list removed; projector steps corrected; guidebook link and local-picks links added.
 
+## Follow-up (2026-11-25)
+- "Outdoor fireplace" amenity removed; the Vrbo summary now says "Indoor fireplace" (it used to say "Indoor & outdoor fireplaces").
+- The description now combines the grill and outdoor kitchen: "Outdoor kitchen with a built-in gas grill, plus outdoor furniture". The BBQ and Outdoor kitchen amenity toggles stay separate (the platform lists them as two amenities). Hot tub was already listed.
+- Check-in method details now read "Check-in instructions are sent in a message 3 days before your check-in."
+- The default House manual text now holds the new guidebook link, and all channels use it.
+
 ## Still open
-- The hidden default House manual text still holds the Canva view link (no channel shows it).
-- "Outdoor fireplace" is still listed as an amenity; confirm it is the right one to keep.
-- Check-in method details still say "Please contact the host for check-in instructions."
-- Canva link restrictions for the Lakeway packet.
+- Canva link restriction for the Lakeway packet (host is handling it).
